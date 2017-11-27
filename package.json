@@ -1,0 +1,17 @@
+{
+  "name": "node-hamony-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dynamic_import": "node-esml src/dynamic_import",
+    "async_iteration": "node --harmony_async_iteration src/async_iteration",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "node-es-module-loader": "^0.3.8"
+  }
+}
