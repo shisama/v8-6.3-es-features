@@ -11,10 +11,16 @@
 <p>Spec: <a href="https://tc39.github.io/proposal-dynamic-import/" target="_blank">tc39/proposal-dynamic-import</a></p>
 <script type="module">
   (async() => {
-    for (let i = 1; i <= 3; i++) {
+    let count = 0;
+    let id = setInterval(async() => {
+      const i = Math.floor(Math.random() * 3) + 1;
       const module = await import(`./import_modules/hello${i}.js`);
       module.hello();
-    }
+      count++;
+      if (count === 10) {
+        clearInterval(id);
+      }
+    }, 1000);
   })();
 </script>
 </body>
