@@ -1,13 +1,7 @@
 const axios = require('axios');
 
-async function* gen() {
-  const tags = [
-    "Node.js",
-    "JavaScript",
-    "npm"
-  ];
+async function* gen(tags) {
   const promises = [];
-
   for (const tag of tags) {
     promises.push(axios.get(`https://qiita.com/api/v2/tags/${tag}`),)
   }
@@ -18,7 +12,12 @@ async function* gen() {
 }
 
 (async() => {
-  for await (const res of gen()) {
+  const tags = [
+    "Node.js",
+    "JavaScript",
+    "npm"
+  ];
+  for await (const res of gen(tags)) {
     console.log(res.data);
   }
 })();

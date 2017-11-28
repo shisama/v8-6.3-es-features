@@ -10,15 +10,8 @@
 <p>Please open DevTools to see script and console.</p>
 <p>Spec: <a href="https://tc39.github.io/proposal-async-iteration/" target="_blank">tc39/proposal-async-iteration</a></p>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript">
-  async function* gen() {
-    const tags = [
-      "Node.js",
-      "JavaScript",
-      "npm"
-    ];
+<script type="text/javascript">async function* gen(tags) {
     const promises = [];
-
     for (const tag of tags) {
       promises.push(axios.get(`https://qiita.com/api/v2/tags/${tag}`),)
     }
@@ -29,8 +22,14 @@
   }
 
   (async() => {
-    for await (const res of gen()) {
-      console.log(res.data);
+    const tags = [
+      "Node.js",
+      "JavaScript",
+      "npm"
+    ];
+
+    for await (const res of gen(tags)) {
+      console.log(JSON.stringify(res.data));
     }
   })();
 </script>
