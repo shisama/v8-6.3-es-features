@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Promise.prototype.finally Demo</h1>
+<p style="color: red">Please use Chrome 63 or newer.</p>
+<p>Please open DevTools to see script and console.</p>
+<p>Spec: <a href="https://tc39.github.io/proposal-promise-finally/" target="_blank">tc39/proposal-promise-finally</a></p>
+<script type="module">
+  Promise.resolve("resolve")
+    .then(val => {console.log(val);return "then"})
+    .then(val => {console.log(val);throw new Error("catch")})
+    .catch(err => {console.log(err.message)})
+    .finally(() => {console.log("finally")});
+</script>
+</body>
+</html>

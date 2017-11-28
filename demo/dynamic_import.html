@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Dynamic Import Demo</h1>
+<p style="color: red">Please use Chrome 63 or newer.</p>
+<p>Please open DevTools to see script and console.</p>
+<p>Spec: <a href="https://tc39.github.io/proposal-dynamic-import/" target="_blank">tc39/proposal-dynamic-import</a></p>
+<script type="module">
+  (async() => {
+    for (let i = 1; i <= 3; i++) {
+      const module = await import(`./import_modules/hello${i}.js`);
+      module.hello();
+    }
+  })();
+</script>
+</body>
+</html>

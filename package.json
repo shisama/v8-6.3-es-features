@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dynamic_import": "node-esml src/dynamic_import",
-    "async_iteration": "node --harmony_async_iteration src/async_iteration",
+    "dynamic_import": "node-esml demo/dynamic_import",
+    "async_iteration": "node --harmony_async_iteration demo/async_iteration",
+    "promise_finally": "node --harmony_promise_finally demo/promise_finally",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
