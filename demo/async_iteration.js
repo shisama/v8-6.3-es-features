@@ -1,23 +1,20 @@
 const axios = require('axios');
 
-async function* gen(tags) {
-  const promises = [];
-  for (const tag of tags) {
-    promises.push(axios.get(`https://qiita.com/api/v2/tags/${tag}`),)
-  }
-
-  for (const promise of promises) {
-    yield promise;
+async function* gen() {
+  while (true) {
+    const res = await axios.get('https://www.random.org/decimal-fractions/?num=1&dec=10&col=1&format=plain&rnd=new');
+    const num = await res.data;
+    yield Number(num);
   }
 }
 
 (async() => {
-  const tags = [
-    "Node.js",
-    "JavaScript",
-    "npm"
-  ];
-  for await (const res of gen(tags)) {
-    console.log(res.data);
+  const BREAK = 0.8;
+  for await (const num of gen()) {
+    console.log(num);
+    if (num > BREAK) {
+      console.log("over", BREAK)
+      break;
+    }
   }
 })();
